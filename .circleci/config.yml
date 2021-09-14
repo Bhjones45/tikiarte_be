@@ -14,4 +14,8 @@ jobs:
           command: bundle -v
       - ruby/bundle-install
       - run:
+          name: Run test suite
           command: bundle exec rspec
+      - run:
+          name: Run standard linter
+          command: bundle exec standardrb
