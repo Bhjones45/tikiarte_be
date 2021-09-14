@@ -35,6 +35,7 @@ group :development, :test do
   gem 'pry'
   gem 'simplecov'
   gem 'shoulda-matchers'
+  gem 'standard'
 end
 
 group :development do
