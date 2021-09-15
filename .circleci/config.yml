@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
+  heroku: circleci/heroku@0.0.10.
 
 jobs:
   build:
@@ -19,3 +20,11 @@ jobs:
       - run:
           name: Run standard linter
           command: bundle exec standardrb
+
+workflows:
+  heroku_deploy:
+    jobs:
+      - heroku/deploy-via-git:
+          filters:
+            branches:
+              only: main
