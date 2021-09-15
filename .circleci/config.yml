@@ -25,6 +25,8 @@ workflows:
   heroku_deploy:
     jobs:
       - heroku/deploy-via-git: https://git.heroku.com/tikiarte-be.git
+          requires:
+            - build
           filters:
             branches:
               only: main
