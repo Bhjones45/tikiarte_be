@@ -17,8 +17,13 @@ describe 'Sessions' do
       expect(response).to be_successful
 
       director_returned = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(director_returned[:id].to_i).to eq(director.id)
+      expect(director_returned[:attributes][:email]).to eq(director.email)
+      expect(director_returned[:attributes][:token]).to eq(director.token)
+      expect(director_returned[:attributes][:google_id]).to eq(director.google_id)
     end
-    
+
     it 'creates a director with data if they do not exist' do
       post_params = ({
         email: "jacobmarcareer@gmail.com",
