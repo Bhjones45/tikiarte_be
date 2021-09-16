@@ -8,14 +8,17 @@ jobs:
     parallelism: 3
     docker:
       - image: circleci/ruby:2.7.2
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_PATH: vendor/bundle
-          BUNDLE_RETRY: 3
-          RAILS_ENV: test
       - image: circleci/postgres:9.6-alpine
         environment:
+          POSTGRES_USER: postgres
           POSTGRES_DB: tikiarte_be_test
+    environment:
+      BUNDLE_PATH: vendor/bundle
+      BUNDLE_JOBS: 3
+      BUNDLE_RETRY: 3
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      RAILS_ENV: test
     executor: ruby/default
     steps:
       - checkout
