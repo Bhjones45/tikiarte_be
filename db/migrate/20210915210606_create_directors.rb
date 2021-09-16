@@ -3,7 +3,7 @@ class CreateDirectors < ActiveRecord::Migration[5.2]
     create_table :directors do |t|
       t.string :email
       t.string :token
-      t.string :username
+      t.string :google_id
 
       t.timestamps
     end
