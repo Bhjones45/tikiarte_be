@@ -30,8 +30,6 @@ jobs:
       - run:
           name: Database setup
           command: rails db:{create,migrate}
-        environment:
-          DATABASE_URL: "postgres://localhost:5432/tikiarte_be_test"
       - run:
           name: Run test suite
           command: bundle exec rspec
