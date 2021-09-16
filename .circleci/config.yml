@@ -5,12 +5,17 @@ orbs:
 
 jobs:
   build:
+    parallelism: 3
     docker:
       - image: circleci/ruby:2.7.2
       - image: circleci/postgres:9.5-alpine
         environment:
           POSTGRES_DB: tikiarte_be_test
     executor: ruby/default
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      RAILS_ENV: test
     steps:
       - checkout
       - run:
