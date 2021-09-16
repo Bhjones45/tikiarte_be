@@ -5,20 +5,38 @@ orbs:
 
 jobs:
   build:
+    parallelism: 3
     docker:
       - image: circleci/ruby:2.7.2
+      - image: circleci/postgres:9.6-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: tikiarte_be_test
+    environment:
+      BUNDLE_PATH: vendor/bundle
+      BUNDLE_JOBS: 3
+      BUNDLE_RETRY: 3
+      PGHOST: 127.0.0.1
+      PGUSER: postgres
+      RAILS_ENV: test
     executor: ruby/default
     steps:
       - checkout
+      - run: cp config/database.yml.ci config/database.yml
       - run:
-          name: bundler?
+          name: Bundler Version
           command: bundle -v
-      - ruby/bundle-install
+      - run:
+          name: Build gemfile
+          command: bundle install
+      - run:
+          name: Setup DB
+          command: bundle exec rails db:schema:load --trace
       - run:
           name: Run test suite
           command: bundle exec rspec
       - run:
-          name: Run standard linter
+          name: Run Standard linter
           command: bundle exec standardrb
 
 workflows:
