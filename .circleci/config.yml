@@ -8,7 +8,7 @@ jobs:
     parallelism: 3
     docker:
       - image: circleci/ruby:2.7.2
-      - image: circleci/postgres:9.5-alpine
+      - image: circleci/postgres:9.6-jessie
         environment:
           POSTGRES_DB: tikiarte_be_test
     executor: ruby/default
@@ -16,6 +16,7 @@ jobs:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       RAILS_ENV: test
+      DATABASE_URL: "postgres://localhost:5432/tikiarte_be_test"
     steps:
       - checkout
       - run:
@@ -25,11 +26,11 @@ jobs:
           name: Build gemfile
           command: bundle install
       - run:
-          name: Wait for DB
+          name: Waiting for Postgres to be ready
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Database setup
-          command: rails db:migrate
+          command: rails db:{create,migrate}
       - run:
           name: Run test suite
           command: bundle exec rspec
