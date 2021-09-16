@@ -13,8 +13,6 @@ jobs:
           BUNDLE_PATH: vendor/bundle
           BUNDLE_RETRY: 3
           RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          PG_HOST: 127.0.0.1
       - image: circleci/postgres:9.6
         environment:
           POSTGRES_DB: tikiarte_be_test
@@ -27,9 +25,6 @@ jobs:
       - run:
           name: Build gemfile
           command: bundle install
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
       - run:
           name: Setup DB
           command: bundle exec rails db:create db:schema:load --trace
