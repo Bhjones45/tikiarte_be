@@ -11,14 +11,17 @@ jobs:
     steps:
       - checkout
       - run:
-          name: bundler?
+          name: Bundler Version
           command: bundle -v
       - ruby/bundle-install
       - run:
           name: Run test suite
           command: bundle exec rspec
       - run:
-          name: Run standard linter
+          name: Build DB and Migrate
+          command: rails db:{create,migrate}
+      - run:
+          name: Run Standard linter
           command: bundle exec standardrb
 
 workflows:
