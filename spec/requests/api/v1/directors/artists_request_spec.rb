@@ -60,7 +60,12 @@ describe 'directors artists' do
       expect(response).to be_successful
 
       returned_artist = JSON.parse(response.body, symbolize_names: true)[:data]
-
+      
+      expect(returned_artist[:id].to_i).to eq(artist.id)
+      expect(returned_artist).to have_key(:type)
+      expect(returned_artist[:attributes][:username]).to eq(artist.username)
+      expect(returned_artist[:attributes][:password_digest]).to eq(artist.password_digest)
+      expect(returned_artist[:attributes][:director_id]).to eq(artist.director_id)
     end
   end
 end
