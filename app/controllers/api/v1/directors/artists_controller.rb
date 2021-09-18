@@ -14,6 +14,11 @@ class Api::V1::Directors::ArtistsController < ApplicationController
     render json: ArtistSerializer.new(artist)
   end
 
+  def update
+    artist = Artist.find(params[:id])
+    artist.update(artist_params)
+    render json: ArtistSerializer.new(artist)
+  end
 
   private
 

@@ -60,12 +60,73 @@ describe 'directors artists' do
       expect(response).to be_successful
 
       returned_artist = JSON.parse(response.body, symbolize_names: true)[:data]
-      
+
       expect(returned_artist[:id].to_i).to eq(artist.id)
       expect(returned_artist).to have_key(:type)
       expect(returned_artist[:attributes][:username]).to eq(artist.username)
       expect(returned_artist[:attributes][:password_digest]).to eq(artist.password_digest)
       expect(returned_artist[:attributes][:director_id]).to eq(artist.director_id)
+    end
+  end
+
+  describe 'put request' do
+    it 'updates an artists details' do
+      artist = create(:artist, director_id: @director.id)
+
+      put_params = ({
+        username: "satan",
+        password: "hailme"
+        })
+
+      headers = { "CONTENT_TYPE" => "application/json" }
+
+      put "/api/v1/directors/#{@director.id}/artists/#{artist.id}", headers: headers, params: JSON.generate(artist: put_params)
+
+      expect(response).to be_successful
+
+      returned_artist = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(returned_artist[:id].to_i).to eq(artist.id)
+      expect(returned_artist).to have_key(:type)
+      expect(returned_artist[:attributes][:username]).to_not eq(artist.username)
+      expect(returned_artist[:attributes][:password_digest]).to_not eq(artist.password_digest)
+      expect(returned_artist[:attributes][:director_id]).to eq(artist.director_id)
+    end
+
+    it 'can update a single attribute' do
+      artist = create(:artist, director_id: @director.id)
+
+      put_params = ({
+        password: "hailme"
+        })
+
+      headers = { "CONTENT_TYPE" => "application/json" }
+
+      put "/api/v1/directors/#{@director.id}/artists/#{artist.id}", headers: headers, params: JSON.generate(artist: put_params)
+
+      expect(response).to be_successful
+
+      returned_artist = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(returned_artist[:id].to_i).to eq(artist.id)
+      expect(returned_artist).to have_key(:type)
+      expect(returned_artist[:attributes][:username]).to eq(artist.username)
+      expect(returned_artist[:attributes][:password_digest]).to_not eq(artist.password_digest)
+      expect(returned_artist[:attributes][:director_id]).to eq(artist.director_id)
+    end
+
+    it 'cannot return an artist with an altered director_id' do
+      artist = create(:artist, director_id: @director.id)
+
+      put_params = ({
+        director_id: 88
+        })
+
+        headers = { "CONTENT_TYPE" => "application/json" }
+
+        put "/api/v1/directors/#{@director.id}/artists/#{artist.id}", headers: headers, params: JSON.generate(artist: put_params)
+
+        expect(response).to be_successful
     end
   end
 end
