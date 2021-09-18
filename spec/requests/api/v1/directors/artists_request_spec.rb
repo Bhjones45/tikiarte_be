@@ -50,4 +50,17 @@ describe 'directors artists' do
       expect(artist[:attributes]).to have_key(:director_id)
     end
   end
+
+  describe 'get show request' do
+    it 'returns an artists details' do
+      artist = create(:artist, director_id: @director.id)
+
+      get "/api/v1/directors/#{@director.id}/artists/#{artist.id}"
+
+      expect(response).to be_successful
+
+      returned_artist = JSON.parse(response.body, symbolize_names: true)[:data]
+
+    end
+  end
 end

@@ -9,6 +9,12 @@ class Api::V1::Directors::ArtistsController < ApplicationController
     render json: ArtistSerializer.new(artist)
   end
 
+  def show
+    artist = Artist.find(params[:id])
+    render json: ArtistSerializer.new(artist)
+  end
+
+
   private
 
   def artist_params
