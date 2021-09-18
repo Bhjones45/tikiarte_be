@@ -12,11 +12,16 @@ describe 'directors artists' do
 
       returned_artists = JSON.parse(response.body, symbolize_names: true)[:data]
 
-      expect(returned_artists).to eq()
-      expect(returned_artists).to have_key()
-      expect(returned_artists[:attributes]).to have_key()
-      expect(returned_artists[:attributes]).to have_key()
-      expect(returned_artists[:attributes]).to have_key()
+      expect(returned_artists[:attributes]).to have_key(:artists)
+      expect(returned_artists[:attributes][:artists].count).to eq(3)
+
+      returned_artists[:attributes][:artists].each do |artist|
+        expect(artist).to have_key(:id)
+        expect(artist).to have_key(:username)
+        expect(artist).to have_key(:password_digest)
+        expect(artist).to have_key(:director_id)
+      end
+
     end
   end
 end
