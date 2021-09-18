@@ -115,7 +115,7 @@ describe 'directors artists' do
       expect(returned_artist[:attributes][:director_id]).to eq(artist.director_id)
     end
 
-    it 'cannot return an artist with an altered director_id' do
+    it 'cannot update an artist with an altered director_id' do
       artist = create(:artist, director_id: @director.id)
 
       put_params = ({
@@ -127,6 +127,18 @@ describe 'directors artists' do
         put "/api/v1/directors/#{@director.id}/artists/#{artist.id}", headers: headers, params: JSON.generate(artist: put_params)
 
         expect(response).to be_successful
+
+        returned_artist = JSON.parse(response.body, symbolize_names: true)[:data]
+
+        expect(returned_artist[:attributes][:director_id]).to_not eq(88)
+    end
+  end
+
+  describe 'delete request' do
+    it 'deletes an artist' do
+      artist = create(:artist, director_id: @director.id)
+
+      
     end
   end
 end
