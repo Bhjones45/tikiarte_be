@@ -7,7 +7,7 @@ class Api::V1::Directors::ArtistsController < ApplicationController
 
   def create
     artist = Artist.create(artist_params)
-    render json: 
+    render json: ArtistSerializer.new(artist)
   end
 
   private

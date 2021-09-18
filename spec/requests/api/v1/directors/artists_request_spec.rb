@@ -43,7 +43,6 @@ describe 'directors artists' do
 
       artist = JSON.parse(response.body, symbolize_names: true)
 
-
     end
   end
 end
