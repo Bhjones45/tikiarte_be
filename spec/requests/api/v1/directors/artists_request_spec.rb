@@ -41,8 +41,13 @@ describe 'directors artists' do
 
       expect(response).to be_successful
 
-      artist = JSON.parse(response.body, symbolize_names: true)
+      artist = JSON.parse(response.body, symbolize_names: true)[:data]
 
+      expect(artist).to have_key(:id)
+      expect(artist).to have_key(:type)
+      expect(artist[:attributes]).to have_key(:username)
+      expect(artist[:attributes]).to have_key(:password_digest)
+      expect(artist[:attributes]).to have_key(:director_id)
     end
   end
 end

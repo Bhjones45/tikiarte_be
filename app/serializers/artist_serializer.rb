@@ -1,4 +1,4 @@
 class ArtistSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :username, :password, :director_id
+  attributes :username, :password_digest, :director_id
 end
