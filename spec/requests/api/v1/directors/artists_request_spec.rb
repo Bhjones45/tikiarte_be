@@ -32,13 +32,17 @@ describe 'directors artists' do
 
       post_params = ({
         username: "satan",
-        password: "12345",
-        director_id: @director.id
+        password: "12345"
         })
 
       headers = { "CONTENT_TYPE" => "application/json" }
 
       post "/api/v1/directors/#{@director.id}/artists", headers: headers, params: JSON.generate(artist: post_params)
+
+      expect(response).to be_successful
+
+      artist = JSON.parse(response.body, symbolize_names: true)
+
 
     end
   end
