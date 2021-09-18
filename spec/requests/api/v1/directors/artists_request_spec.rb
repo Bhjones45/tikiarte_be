@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 describe 'directors artists' do
+  before :each do
+    @director = create(:director)
+  end
+
   describe 'get index request' do
     it 'can return all artists' do
-      director = create(:director)
-      list = create_list(:artist, 3, director_id: director.id)
+      list = create_list(:artist, 3, director_id: @director.id)
 
-      get "/api/v1/directors/#{director.id}/artists"
+      get "/api/v1/directors/#{@director.id}/artists"
 
       expect(response).to be_successful
 
@@ -21,6 +24,21 @@ describe 'directors artists' do
         expect(artist).to have_key(:password_digest)
         expect(artist).to have_key(:director_id)
       end
+    end
+  end
+
+  describe 'post request' do
+    it 'creates artists under a director' do
+
+      post_params = ({
+        username: "satan",
+        password: "12345",
+        director_id: @director.id
+        })
+
+      headers = { "CONTENT_TYPE" => "application/json" }
+
+      post "/api/v1/directors/#{@director.id}/artists", headers: headers, params: JSON.generate(artist: post_params)
 
     end
   end

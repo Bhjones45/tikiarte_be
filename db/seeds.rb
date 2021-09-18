@@ -1,3 +1,5 @@
+Director.destroy_all
+
 jacob = Director.create(
   email: "jacobmarcareer@gmail.com",
   token: 66666,
