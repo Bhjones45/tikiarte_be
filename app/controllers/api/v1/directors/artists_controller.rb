@@ -21,8 +21,8 @@ class Api::V1::Directors::ArtistsController < ApplicationController
   end
 
   def delete
-  artist = Artist.find(params[:id])
-  artist.delete
+    artist = Artist.find(params[:id])
+    artist.delete
   end
 
   private
