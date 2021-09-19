@@ -20,6 +20,11 @@ class Api::V1::Directors::ArtistsController < ApplicationController
     render json: ArtistSerializer.new(artist)
   end
 
+  def delete
+  artist = Artist.find(params[:id])
+  artist.delete
+  end
+
   private
 
   def artist_params

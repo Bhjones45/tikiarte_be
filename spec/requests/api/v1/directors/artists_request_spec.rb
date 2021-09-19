@@ -138,7 +138,14 @@ describe 'directors artists' do
     it 'deletes an artist' do
       artist = create(:artist, director_id: @director.id)
 
-      
+      delete "/api/v1/directors/#{@director.id}/artists/#{artist.id}"
+
+      expect(response).to be_successful
+
+      get "/api/v1/directors/#{@director.id}/artists/#{artist.id}"
+
+      expect(response).to be_not_found
+      expect(response.status).to eq(404)
     end
   end
 end
