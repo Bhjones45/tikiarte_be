@@ -103,14 +103,14 @@ Checkout the [Frontend repo](https://github.com/danembb/tikiarte_fe)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/danembb/last_airbender.svg?style=flat
-[contributors-url]: https://github.com/danembb/last_airbender/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/danembb/last_airbender.svg?style=flat
-[forks-url]: https://github.com/danembb/last_airbender/network/members
+[contributors-shield]: https://img.shields.io/github/contributors/Bhjones45/tikiarte_be.svg?style=flat
+[contributors-url]: https://github.com/dBhjones45/tikiarte_be/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Bhjones45/tikiarte_be.svg?style=flat
+[forks-url]: https://github.com/Bhjones45/tikiarte_be/network/members
 [stars-shield]: https://img.shields.io/github/stars/Bhjones45/tikiarte_be.svg?style=flat
 [stars-url]: https://github.com/Bhjones45/tikiarte_be/stargazers
-[issues-shield]: https://img.shields.io/github/issues/danembb/last_airbender.svg?style=flat
-[issues-url]: https://github.com/danembb/last_airbender/issues
+[issues-shield]: https://img.shields.io/github/issues/Bhjones45/tikiarte_be.svg?style=flat
+[issues-url]: https://github.com/Bhjones45/tikiarte_be/issues
 
 
 ### Local Setup
