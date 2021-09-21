@@ -9,4 +9,8 @@ class Image < ApplicationRecord
       upload.blob.service_url
     end
   end
+
+  def self.find_public_images
+    where(status: "public").order(created_at: :desc)
+  end
 end
