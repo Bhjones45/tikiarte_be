@@ -8,6 +8,7 @@ class Api::V1::Artists::ImagesController < ApplicationController
   end
 
   private
+
   def image_params
     params.permit(:description, :title, :tags, :status, :image).merge(artist_id: params[:artist_id])
   end

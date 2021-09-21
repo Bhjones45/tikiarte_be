@@ -5,6 +5,7 @@ class DirectUploadController < ApplicationController
   end
 
   private
+
   def blob_params
     params.require(:file).permit(:filename, :byte_size, :checksum, :content_type, metadata: {})
   end
