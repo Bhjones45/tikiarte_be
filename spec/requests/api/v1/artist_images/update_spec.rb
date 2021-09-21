@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'directors artists', type: :request do
+describe 'update directors artists image', type: :request do
   before :each do
     @artist = create(:artist, :with_images)
   end

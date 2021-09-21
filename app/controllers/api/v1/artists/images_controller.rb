@@ -13,6 +13,11 @@ class Api::V1::Artists::ImagesController < ApplicationController
     render json: image.as_json(root: false, methods: :upload_url)
   end
 
+  def delete
+    image = Image.find(image_id[:id])
+    image.delete
+  end
+
   private
 
   def image_params
@@ -21,5 +26,9 @@ class Api::V1::Artists::ImagesController < ApplicationController
 
   def update_params
     params.require(:image).permit(:status, :tags, :description, :title).merge(id: params[:id])
+  end
+
+  def image_id
+    params.permit(:id)
   end
 end
