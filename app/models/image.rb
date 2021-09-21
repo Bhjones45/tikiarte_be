@@ -11,6 +11,6 @@ class Image < ApplicationRecord
   end
 
   def self.find_public_images
-    where(status: 'public').order(created_at: :desc)
+    where(status: "public").order(created_at: :desc)
   end
 end
