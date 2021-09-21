@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'sessions/create', to: 'sessions#create'
       resources :inspiration, only: [:index]
+      resources :public_gallery, only: [:index]
 
       resources :artists, only: [] do
         post '/images', to: 'artists/images#create'
