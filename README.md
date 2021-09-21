@@ -134,7 +134,7 @@ Find the [project spec here](https://backend.turing.edu/module3/projects/consult
 
 #### Endpoints
 
-[Backend Endpoints](https://gist.github.com/Jacobmar13/1920fd0d5bde6bca8f4748112190c2dd)
+[Backend Endpoints](https://github.com/Bhjones45/tikiarte_be/wiki/Endpoints)
 
 #### <ins>Project Configurations</ins>
 
