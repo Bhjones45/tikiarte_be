@@ -10,6 +10,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pry'
 gem 'fast_jsonapi'
 gem 'bcrypt', '~> 3.1.7'
+gem "aws-sdk-s3", require: false
+gem 'active_storage_validations'
+gem 'image_processing'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
