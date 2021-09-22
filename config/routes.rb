@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :public_gallery, only: [:index]
 
       resources :artists, only: [] do
+        get '/images', to: 'artists/images#index'
         post '/images', to: 'artists/images#create'
         put '/images/:id', to: 'artists/images#update'
         delete '/images/:id', to: 'artists/images#delete'
