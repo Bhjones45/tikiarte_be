@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
       resources :artists, only: [] do
         post '/images', to: 'artists/images#create'
+        put '/images/:id', to: 'artists/images#update'
+        delete '/images/:id', to: 'artists/images#delete'
       end
 
       resources :directors, only: [:show] do
