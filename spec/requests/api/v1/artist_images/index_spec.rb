@@ -7,8 +7,24 @@ describe 'artists images' do
 
   describe 'get images' do
     it 'return all images for an artist' do
+      get "/api/v1/artists/#{@artist.id}/images"
 
-      
+      expect(response).to be_successful
+
+      returned_images = JSON.parse(response.body, symbolize_names: true)[:data]
+
+      expect(returned_images[:attributes]).to have_key(:images)
+      expect(returned_images[:attributes][:images].count).to eq(3)
+
+      returned_images[:attributes][:images].each do |image|
+        expect(image).to have_key(:id)
+        expect(image).to have_key(:status)
+        expect(image).to have_key(:tags)
+        expect(image).to have_key(:description)
+        expect(image).to have_key(:title)
+        expect(image).to have_key(:artist_id)
+        expect(image[:artist_id]).to eq(@artist.id)
+      end
     end
   end
 end

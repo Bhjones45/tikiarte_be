@@ -18,6 +18,11 @@ class Api::V1::Artists::ImagesController < ApplicationController
     image.delete
   end
 
+  def index
+    artist = Artist.find(artist_id[:artist_id])
+    render json: ArtistImageSerializer.new(artist)
+  end
+
   private
 
   def image_params
@@ -30,5 +35,9 @@ class Api::V1::Artists::ImagesController < ApplicationController
 
   def image_id
     params.permit(:id)
+  end
+
+  def artist_id
+    params.permit(:artist_id)
   end
 end
