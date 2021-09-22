@@ -10,7 +10,7 @@ class Api::V1::Artists::ImagesController < ApplicationController
   def update
     image = Image.find(update_params[:id])
     image.update(update_params)
-    render json: image.as_json(root: false, methods: :upload_url)
+    render json: ImageSerializer.new(image)
   end
 
   def delete
