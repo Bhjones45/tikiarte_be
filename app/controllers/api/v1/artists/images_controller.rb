@@ -20,7 +20,7 @@ class Api::V1::Artists::ImagesController < ApplicationController
 
   def index
     artist = Artist.find(artist_id[:artist_id])
-    render json: ArtistImageSerializer.new(artist)
+    render json: ImageSerializer.new(artist.images.sorted)
   end
 
   private
