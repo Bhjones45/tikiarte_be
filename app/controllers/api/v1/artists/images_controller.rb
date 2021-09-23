@@ -4,7 +4,7 @@ class Api::V1::Artists::ImagesController < ApplicationController
     params = image_params.except(:image)
     image = Image.create!(params)
     image.upload.attach(upload) if upload.present? && !!image
-    render json: image.as_json(root: false, methods: :upload_url)
+    render json: ImageSerializer.new(image)
   end
 
   def update
