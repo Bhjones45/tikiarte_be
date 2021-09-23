@@ -7,7 +7,7 @@ RSpec.describe 'public gallery' do
       public_images[1].update(created_at: Time.now)
 
       private_image = public_images[3]
-      private_image.update(status: 'private')
+      private_image.update(status: 'private', title: 'new_title')
 
       get "/api/v1/public_gallery"
 
