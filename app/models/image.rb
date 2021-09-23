@@ -15,6 +15,6 @@ class Image < ApplicationRecord
   end
 
   def self.sorted
-    order(:created_at, :asc)
+    order(created_at: :desc)
   end
 end
