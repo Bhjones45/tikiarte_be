@@ -13,4 +13,8 @@ class Image < ApplicationRecord
   def self.find_public_images
     where(status: "public").order(created_at: :desc)
   end
+
+  def self.sorted
+    order(created_at: :desc)
+  end
 end

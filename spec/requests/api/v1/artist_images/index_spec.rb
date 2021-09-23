@@ -25,6 +25,12 @@ describe 'artists images' do
         expect(image).to have_key(:artist_id)
         expect(image[:artist_id]).to eq(@artist.id)
       end
+
+      expected = Image.all.sorted.map { |i| i.title }
+
+      result = returned_images[:attributes][:images].map { |i| i[:title] }
+
+      expect(expected).to eq(result)
     end
   end
 end
