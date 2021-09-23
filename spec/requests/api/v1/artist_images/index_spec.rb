@@ -13,22 +13,23 @@ describe 'artists images' do
 
       returned_images = JSON.parse(response.body, symbolize_names: true)[:data]
 
-      expect(returned_images[:attributes]).to have_key(:images)
-      expect(returned_images[:attributes][:images].count).to eq(3)
+      expect(returned_images.count).to eq(3)
 
-      returned_images[:attributes][:images].each do |image|
+      returned_images.each do |image|
         expect(image).to have_key(:id)
-        expect(image).to have_key(:status)
-        expect(image).to have_key(:tags)
-        expect(image).to have_key(:description)
-        expect(image).to have_key(:title)
-        expect(image).to have_key(:artist_id)
-        expect(image[:artist_id]).to eq(@artist.id)
+        expect(image).to have_key(:type)
+        expect(image[:attributes]).to have_key(:status)
+        expect(image[:attributes]).to have_key(:tags)
+        expect(image[:attributes]).to have_key(:description)
+        expect(image[:attributes]).to have_key(:title)
+        expect(image[:attributes]).to have_key(:artist_id)
+        expect(image[:attributes]).to have_key(:upload_url)
+        expect(image[:attributes][:artist_id]).to eq(@artist.id)
       end
 
       expected = Image.all.sorted.map { |i| i.title }
 
-      result = returned_images[:attributes][:images].map { |i| i[:title] }
+      result = returned_images.map { |i| i[:attributes][:title] }
 
       expect(expected).to eq(result)
     end
