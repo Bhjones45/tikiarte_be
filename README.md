@@ -4,6 +4,7 @@
 [![Issues][issues-shield]][issues-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Forks][forks-shield]][forks-url]
+[![CircleCI build status][circleci-shield]][circleci-url]
 
 ### Welcome to TikiArté! - A database-driven web application
 
@@ -118,6 +119,8 @@ Checkout the [Frontend repo](https://github.com/danembb/tikiarte_fe)
 [stars-url]: https://github.com/Bhjones45/tikiarte_be/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Bhjones45/tikiarte_be.svg?style=flat
 [issues-url]: https://github.com/Bhjones45/tikiarte_be/issues
+[circleci-shield]: https://img.shields.io/circleci/build/github/Bhjones45/tikiarte_be?logo=circleci
+[circleci-url]: https://circleci.com/gh/Bhjones45/tikiarte_be
 
 
 ### Local Setup
