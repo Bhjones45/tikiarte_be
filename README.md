@@ -49,7 +49,7 @@ Checkout the [Frontend repo](https://github.com/danembb/tikiarte_fe)
 
 #### Gems
 <p>
-  <img src="https://img.shields.io/badge/rspec-rails-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
+  <img src="https://img.shields.io/badge/rspec--rails-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   <img src="https://img.shields.io/badge/pry-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />  
   <img src="https://img.shields.io/badge/standard-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />  
   <img src="https://img.shields.io/badge/simplecov-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />  
@@ -62,12 +62,12 @@ Checkout the [Frontend repo](https://github.com/danembb/tikiarte_fe)
   <img src="https://img.shields.io/badge/faraday-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   </br>
   <img src="https://img.shields.io/badge/webmock-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
-  <img src="https://img.shields.io/badge/aws-sdk-s3-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
+  <img src="https://img.shields.io/badge/aws--sdk--s3-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   <img src="https://img.shields.io/badge/fast_jsonapi-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   <img src="https://img.shields.io/badge/image_processing-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   <img src="https://img.shields.io/badge/factory_bot_rails-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   </br>
-  <img src="https://img.shields.io/badge/faker-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
+  <img src="https://img.shields.io/badge/faker--b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
   <img src="https://img.shields.io/badge/active_storage_validations-b81818.svg?&style=flaste&logo=rubygems&logoColor=white" />
 </p>
 
